@@ -12,6 +12,27 @@ body {
   --dj-red: #e42626;
 }
 
+#try-a-class {
+  background-color: var(--dj-red);
+}
+
+#about-judo {
+  background-color: #000;
+}
+
+#idZenPlannerFrame {
+  color: var(--dj-red);
+  border: 1em solid var(--dj-red);
+}
+
+#idZenPlannerFrame a:link {
+  color: var(--dj-red);
+}
+
+#idZenPlannerFrame2 {
+  border: 1em solid #ed1c24;
+}
+
 .quill > .ql-toolbar:first-child {
   display: none !important;
 }
@@ -60,10 +81,6 @@ body {
   color: var(--dj-red);
 }
 
-#try-a-class {
-  background-color: var(--dj-red);
-}
-
 .logo-white {
   position: absolute;
   width: 103px;
@@ -72,34 +89,20 @@ body {
   top: 20px;
   z-index: 1;
 }
+
 .video-js {
   width: 100%;
   height: 300px;
   aspect-ratio: 16 / 6;
 }
-#about-judo {
-  background-color: #000;
-}
 
 .home-about {
   padding-left: 1px;
 }
+
 .home-about-img {
   width: 321px;
   height: 373px;
-}
-
-#idZenPlannerFrame {
-  color: var(--dj-red);
-  border: 1em solid var(--dj-red);
-}
-
-#idZenPlannerFrame a:link {
-  color: var(--dj-red);
-}
-
-#idZenPlannerFrame2 {
-  border: 1em solid #ed1c24;
 }
 
 .faqs .faq {

@@ -50,7 +50,13 @@ const Home = () => {
               <Row>
                 <Col sm={12} md={6} lg={4} className='py-2'>
                   <div>
-                    <h3 className='home-section-heading'>Judo Fundamentals</h3>
+                    <h3 className='home-section-heading'>Fundamentals</h3>
+
+                    <img
+                      src='assets/img/placeholder_217_175.png'
+                      className='img-fluid'
+                      alt='Judo Fundamentals'
+                    />
                     <span className='home-section-text'>
                       Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                       Assumenda eius hic fugit provident officia suscipit.{' '}
