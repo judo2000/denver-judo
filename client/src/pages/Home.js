@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import FAQ from '../components/FAQ';
 import VideoJS from '../components/VideoJS';
 import video from '../assets/Denver-Judo-Splash-1080.mp4';
-import '../assets/den_judo_logo_white.png';
+
+import GoogleMap from '../components/Map';
 
 const Home = () => {
   const videoJsOptions = {
@@ -13,7 +14,6 @@ const Home = () => {
     autoPlay: true,
     controls: true,
     loop: true,
-    poster: '../den_judo_logo_white.png',
     aspectRation: '16/9',
     sources: [
       {
@@ -95,12 +95,12 @@ const Home = () => {
 
           <section id='try-a-class' className='mt-4'>
             <div className='text-center'>
-              <div
+              {/* <div
                 dangerouslySetInnerHTML={{
                   __html:
-                    "<iframe id='idZenPlannerFrame' style='width: 80%; height: 500px; ' src='https://denverjudo.zenplanner.com/zenplanner/portal/freeTrial.cfm?type=FreeTrial&amp;FRAME=true' />",
+                    "<iframe id='idZenPlannerFrame' style='width: 80%; height: 500px; ' src='https://denverjudo.zenplanner.com/zenplanner/portal/freeTrial.cfm?type=FreeTrial&FRAME=true' />",
                 }}
-              />
+              /> */}
             </div>
           </section>
 
@@ -164,6 +164,11 @@ const Home = () => {
               <h2 className='home-sub-heading'>Frequently Asked Questions</h2>
             </div>
             <FAQ />
+          </section>
+
+          <section id='map' className='my-4 py-4'>
+            <h2>Google Map</h2>
+            <GoogleMap />
           </section>
         </Container>
       </Row>
