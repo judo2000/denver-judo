@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+:root {
+  --dj-red: #e42626;
+}
+
+.quill > .ql-toolbar:first-child {
+  display: none !important;
+}
+
+.offcanvas {
+  background-color: var(--dj-red);
+}
+
+.video-box {
+  width: 100%;
+  height: 300px;
+  background-color: gray;
+}
+
+.home-heading {
+  font-family: 'Bebas Neue';
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 72px;
+  text-transform: uppercase;
+}
+
+.home-sub-heading {
+  font-family: 'Bebas Neue';
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 67.2px;
+  text-transform: uppercase;
+}
+
+.home-section-heading {
+  font-family: 'DM Sans';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34px;
+}
+
+.home-section-text {
+  font-family: 'DM Sans';
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 34px;
+}
+
+.home-section-text a {
+  color: var(--dj-red);
+}
+
+#try-a-class {
+  background-color: var(--dj-red);
+}
+
+.logo-white {
+  position: absolute;
+  width: 103px;
+  height: 96px;
+  left: 20px;
+  top: 20px;
+  z-index: 1;
+}
+.video-js {
+  width: 100%;
+  height: 300px;
+  aspect-ratio: 16 / 6;
+}
+#about-judo {
+  background-color: #000;
+}
+
+.home-about {
+  padding-left: 1px;
+}
+.home-about-img {
+  width: 321px;
+  height: 373px;
+}
+
+#idZenPlannerFrame {
+  color: var(--dj-red);
+  border: 1em solid var(--dj-red);
+}
+
+#idZenPlannerFrame a:link {
+  color: var(--dj-red);
+}
+
+#idZenPlannerFrame2 {
+  border: 1em solid #ed1c24;
+}
+
+.faqs .faq {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 15;
+}
+
+.faqs .faq {
+  margin: 15px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.faqs .faq .faq-question {
+  position: relative;
+  font-size: 20px;
+  padding-right: 80px;
+  transition: all 0.4s ease;
+}
+
+.faqs .faq .faq-question::after {
+  cursor: pointer;
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 0;
+  transform: translate(-50%);
+  width: 30px;
+  height: 30px;
+  background-image: url('../public/assets/img/angle-down-solid.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  transition: all 0.4s ease-out;
+}
+
+.faqs .faq .faq-answer {
+  opacity: 0;
+  max-height: 0;
+  overflow-y: hidden;
+  transition: all 0.4s ease-out;
+}
+
+.faqs .faq.open .faq-question {
+  margin-bottom: 15px;
+}
+
+.faqs .faq.open .faq-question::after {
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.faqs .faq.open .faq-answer {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #ed1c24;
+  color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a,
+.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover,
+.dropdown-btn:hover {
+  color: #111;
+}
+
+#main {
+  transition: margin-left 0.5s;
+  padding: 16px;
+}
+
+/*add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
