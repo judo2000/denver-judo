@@ -14,6 +14,7 @@ const Home = () => {
     controls: true,
     loop: true,
     poster: '../den_judo_logo_white.png',
+    aspectRation: '16/9',
     sources: [
       {
         src: video,
@@ -25,9 +26,9 @@ const Home = () => {
   return (
     <>
       <Row>
-        <Container className=''>
-          <section id='video'>
-            <div className='video-box pt-0 mt-0'>
+        <Container>
+          <section id='video' className='text-center'>
+            <div className='video-box pt-0 mt-0 d-flex justify-content-center'>
               <VideoJS options={videoJsOptions} />
             </div>
           </section>
@@ -40,18 +41,17 @@ const Home = () => {
             </div>
           </section>
 
-          <section id='classes' className='my-4 py-4'>
+          <section id='classes' className='my-4 p-4'>
             <div>
               <Row>
                 <Col sm={12} md={6} lg={4} className='py-2'>
                   <div>
-                    <h3 className='home-section-heading'>Fundamentals</h3>
-
                     <img
                       src='assets/img/placeholder_217_175.png'
-                      className='img-fluid'
+                      className='class-image img-fluid rounded d-block p-2'
                       alt='Judo Fundamentals'
                     />
+                    <h3 className='home-section-heading'>Judo Fundamentals</h3>
                     <span className='home-section-text'>
                       Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                       Assumenda eius hic fugit provident officia suscipit.{' '}
@@ -61,6 +61,11 @@ const Home = () => {
                 </Col>
                 <Col sm={12} md={6} lg={4} className='py-2'>
                   <div>
+                    <img
+                      src='assets/img/placeholder_217_175.png'
+                      className='class-image img-fluid rounded d-block p-2'
+                      alt='Judo Fundamentals'
+                    />
                     <h3 className='home-section-heading'>Competition Judo</h3>
                     <span className='home-section-text'>
                       Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -71,6 +76,11 @@ const Home = () => {
                 </Col>
                 <Col sm={12} md={6} lg={4} className='py-2'>
                   <div>
+                    <img
+                      src='assets/img/placeholder_217_175.png'
+                      className='class-image img-fluid rounded d-block p-2'
+                      alt='Judo Fundamentals'
+                    />
                     <h3 className='home-section-heading'>Kids Judo</h3>
                     <span className='home-section-text'>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.

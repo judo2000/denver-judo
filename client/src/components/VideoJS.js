@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css';
 //import '@videojs/themes/dist/sea/index.css';
-import './VideoCustomThem.scss';
+import './VideoCustomTheme.scss';
 
 const VideoJS = ({ options, themeName = 'sea' }) => {
   const videoRef = useRef(null);
