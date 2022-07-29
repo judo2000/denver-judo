@@ -4,17 +4,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import { LinkContainer } from 'react-router-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-function OffcanvasNav() {
+const OffcanvasNav = () => {
   return (
     <>
       {[false].map((expand) => (
         <Navbar
           key={expand}
           expand={expand}
-          className='mb-3 navbar navbar-dark bg-dark'
+          className='navbar navbar-dark navbar-custom'
         >
           <Container fluid>
             <Navbar.Brand color='white' to='/'>
+              <img
+                src='assets/img/den_judo_logo_white.png'
+                className=''
+                alt='Denver Judo'
+                style={{ width: '50px' }}
+              />
               Denver Judo
             </Navbar.Brand>
             <Navbar.Toggle
@@ -53,6 +59,6 @@ function OffcanvasNav() {
       ))}
     </>
   );
-}
+};
 
 export default OffcanvasNav;

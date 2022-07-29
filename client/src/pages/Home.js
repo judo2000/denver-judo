@@ -25,14 +25,9 @@ const Home = () => {
   return (
     <>
       <Row>
-        <Container className='px-4'>
+        <Container className=''>
           <section id='video'>
             <div className='video-box pt-0 mt-0'>
-              <img
-                src='assets/img/den_judo_logo_white.png'
-                className='logo-white'
-                alt='Denver Judo'
-              />
               <VideoJS options={videoJsOptions} />
             </div>
           </section>
