@@ -5,19 +5,21 @@ import { LinkContainer } from 'react-router-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 const OffcanvasNav = () => {
+  const url = window.location.href;
   return (
     <>
       {[false].map((expand) => (
         <Navbar
           key={expand}
           expand={expand}
-          className='navbar navbar-dark navbar-custom'
+          className={`navbar navbar-dark ${
+            url === 'localhost:3000/' ? 'navbar-custom' : 'navbar-custom-light'
+          }`}
         >
           <Container fluid>
-            <Navbar.Brand color='white' to='/'>
+            <Navbar.Brand to='/'>
               <img
                 src='assets/img/den_judo_logo_white.png'
-                className=''
                 alt='Denver Judo'
                 style={{ width: '50px' }}
               />
@@ -25,7 +27,7 @@ const OffcanvasNav = () => {
             </Navbar.Brand>
             <Navbar.Toggle
               aria-controls={`offcanvasNavbar-expand-${expand}`}
-              color='white'
+              style={{ color: 'black' }}
             />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}

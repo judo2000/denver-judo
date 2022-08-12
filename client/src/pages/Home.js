@@ -27,7 +27,16 @@ const Home = () => {
     <>
       <Row>
         <Container>
-          <section id='video' className='text-center'>
+          <div className='relative video-box pt-0 mt-0 d-flex justify-content-center'>
+            <VideoJS options={videoJsOptions} />
+            <div className='absolute text-center'>
+              <h1 className='home-heading my-4 pt-4'>
+                Train for competition or self defence at denver judo
+              </h1>
+            </div>
+          </div>
+
+          {/* <section id='video' className='text-center'>
             <div className='video-box pt-0 mt-0 d-flex justify-content-center'>
               <VideoJS options={videoJsOptions} />
             </div>
@@ -39,7 +48,7 @@ const Home = () => {
                 Train for competition or self defence at denver judo
               </h1>
             </div>
-          </section>
+          </section> */}
 
           <section id='classes' className='my-4 p-4'>
             <div>
