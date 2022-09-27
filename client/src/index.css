@@ -7,6 +7,7 @@
 body {
   margin: 0;
   overflow-x: hidden; /* Hide scrollbars */
+  font-family: DM sans;
 }
 
 :root {
@@ -137,6 +138,16 @@ div.absolute {
 .class-image {
   max-width: 100%;
   height: auto;
+}
+
+/* Body text */
+.body-small {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.sub-title {
+  font-weight: 700;
 }
 
 .video-box {
