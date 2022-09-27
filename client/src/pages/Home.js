@@ -12,7 +12,7 @@ const Home = () => {
   const videoJsOptions = {
     muted: true,
     autoPlay: true,
-    controls: true,
+    controls: false,
     loop: true,
     aspectRation: '16/9',
     sources: [

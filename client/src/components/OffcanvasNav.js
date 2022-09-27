@@ -17,14 +17,14 @@ const OffcanvasNav = () => {
           }`}
         >
           <Container fluid>
-            <Navbar.Brand to='/'>
+            <Navbar.Brand href='/'>
               <img
-                src='assets/img/den_judo_logo_white.png'
+                src='assets/img/DJ-logo-white.png'
                 alt='Denver Judo'
                 style={{ width: '50px' }}
-              />
-              Denver Judo
+              />{' '}
             </Navbar.Brand>
+            <h1 className='navTitle'>Denver Judo</h1>
             <Navbar.Toggle
               aria-controls={`offcanvasNavbar-expand-${expand}`}
               style={{ color: 'black' }}
