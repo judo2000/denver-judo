@@ -42,16 +42,16 @@ const OffcanvasNav = () => {
               <Offcanvas.Body>
                 <Nav className='justify-content-end flex-grow-1 pe-3'>
                   <LinkContainer to='/' onClick={() => (this.expand = '')}>
-                    <Nav.Link>Home</Nav.Link>
+                    <Nav.Link className='navLinkText'>Home</Nav.Link>
                   </LinkContainer>
                   <LinkContainer
                     to='/schedule'
                     onClick={() => (this.expand = '')}
                   >
-                    <Nav.Link>Schedule</Nav.Link>
+                    <Nav.Link className='navLinkText'>Schedule</Nav.Link>
                   </LinkContainer>
                   <LinkContainer to='/about' onClick={() => (this.expand = '')}>
-                    <Nav.Link>About</Nav.Link>
+                    <Nav.Link className='navLinkText'>About</Nav.Link>
                   </LinkContainer>
                 </Nav>
               </Offcanvas.Body>
