@@ -20,8 +20,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.get('/', (req, res) => {
-  res.sendFild(path.join(__dirname, '../client/build/index.html'));
+  res.sendFild('index.html', {
+    root: path.join(__dirname, '../client/public/'),
+  });
 });
+
+// app.get('/', (req, res) => {
+//   res.sendFild(path.join(__dirname, '../client/build/index.html'));
+// });
 
 // Create a new instance of an Apollo server with the Graphql schema
 const startApolloServer = async (typeDefs, resolvers) => {
