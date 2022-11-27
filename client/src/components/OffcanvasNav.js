@@ -35,7 +35,10 @@ const OffcanvasNav = () => {
               placement='end'
             >
               <Offcanvas.Header closeButton className='offcanvas'>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                <Offcanvas.Title
+                  class='headerTitle'
+                  id={`offcanvasNavbarLabel-expand-${expand}`}
+                >
                   Denver Judo
                 </Offcanvas.Title>
               </Offcanvas.Header>
@@ -52,6 +55,9 @@ const OffcanvasNav = () => {
                   </LinkContainer>
                   <LinkContainer to='/about' onClick={() => (this.expand = '')}>
                     <Nav.Link className='navLinkText'>About</Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to='/test' onClick={() => (this.expand = '')}>
+                    <Nav.Link className='navLinkText'>Test</Nav.Link>
                   </LinkContainer>
                 </Nav>
               </Offcanvas.Body>
