@@ -16,19 +16,24 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
+  const path = require('path');
+  // app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
 }
 
-app.get('*', function (_, res) {
-  res.sendFile(
-    path.join(__dirname, '../client/build/index.html'),
-    function (err) {
-      if (err) {
-        res.status(500).send(err);
-      }
-    }
-  );
-});
+// app.get('/', function (_, res) {
+//   res.sendFile(
+//     path.join(__dirname, '../client/build/index.html'),
+//     function (err) {
+//       if (err) {
+//         res.status(500).send(err);
+//       }
+//     }
+//   );
+// });
 // app.get('*', (req, res) => {
 //   res.sendFild(path.join(__dirname, '../client/public/index.html'));
 // });
