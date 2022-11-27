@@ -31,7 +31,7 @@ const Home = () => {
             <VideoJS options={videoJsOptions} />
             <div className='absolute text-center'>
               <h1 className='home-heading my-4 pt-4'>
-                Train for competition or self defence at denver judo
+                Train for competition or self defence at Denver Judo
               </h1>
             </div>
           </div>
