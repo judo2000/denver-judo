@@ -16,15 +16,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'production') {
-  const path = require('path');
-  // app.use(express.static(path.join(__dirname, '../client/build')));
-
-  app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
+  app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-// app.get('/', function (_, res) {
+// app.get('*', function (_, res) {
 //   res.sendFile(
 //     path.join(__dirname, '../client/build/index.html'),
 //     function (err) {
@@ -34,9 +29,9 @@ if (process.env.NODE_ENV === 'production') {
 //     }
 //   );
 // });
-// app.get('*', (req, res) => {
-//   res.sendFild(path.join(__dirname, '../client/public/index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFild(path.join(__dirname, '../client/public/index.html'));
+});
 
 // Create a new instance of an Apollo server with the Graphql schema
 const startApolloServer = async (typeDefs, resolvers) => {
