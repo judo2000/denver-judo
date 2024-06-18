@@ -7,9 +7,9 @@ export // Protect routes
 const protect = asyncHandler(async (req, res, next) => {
   let token;
 
-  // reaw jwt from the cookie
+  // read jwt from the cookie
   token = req.cookies.jwt;
-
+  console.log(token);
   if (token) {
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -26,6 +26,7 @@ const protect = asyncHandler(async (req, res, next) => {
 });
 
 export const isAdmin = (req, res, next) => {
+  console.log("isAdmin ", req.user.isAdmin);
   if (req.user && req.user.isAdmin) {
     next();
   } else {

@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Image } from "react-bootstrap";
 import video from "../assets/video/Denver-Judo-Splash-1080.mp4";
 import { useGetHomeContentQuery } from "../slices/contentApiSlice";
+import Loader from "../components/Loader.jsx";
 
 const HomeScreen = () => {
   const { data: homeContent, isLoading, refetchMy } = useGetHomeContentQuery();
 
-  console.log(homeContent);
+  const ourDojo = homeContent?.content[0];
+  const kano = homeContent?.content[1];
 
   return (
     <>
@@ -79,6 +81,92 @@ const HomeScreen = () => {
         <div className="text-center py-4">
           <div id="freetrial_583f3707-bf52-41ea-8215-8213abeb0f83"></div>
         </div>
+      </section>
+
+      <section id="about-judo" className="home-about">
+        <div className="pt-4">
+          <Row className="mt-4 py-5 justify-content-center">
+            <Col md={10}>
+              <Row>
+                <Col sm={12} md={6} className="ps-2 py-3">
+                  <div className="ms-4 text-center">
+                    <Image
+                      className="home-about-img img-fluid"
+                      src="assets/images/kano.png"
+                      alt="Kano"
+                    />
+                  </div>
+                </Col>
+                <Col sm={12} md={6} className="ps-2 py-3">
+                  <div className="ms-4">
+                    {isLoading ? (
+                      <Loader />
+                    ) : (
+                      <>
+                        <h2 className="section-heading text-white">
+                          {kano.contentHead}
+                        </h2>
+                        <span className="section-text text-white">
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: kano.contentText,
+                            }}
+                          />
+                        </span>
+                      </>
+                    )}
+                  </div>
+                </Col>
+              </Row>
+
+              <Row className="py-5 ">
+                <Col sm={12} md={6} className="ps-2 py-3">
+                  <div className="ms-4">
+                    {isLoading ? (
+                      <Loader />
+                    ) : (
+                      <>
+                        <h2 className="section-heading text-white">
+                          {ourDojo.contentHead}
+                        </h2>
+                        <span className="section-text text-white">
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: ourDojo.contentText,
+                            }}
+                          />
+                        </span>
+                      </>
+                    )}
+                  </div>
+                </Col>
+                <Col sm={12} md={6} className="ps-2 py-3">
+                  <div className="ms-4 text-center">
+                    <Image
+                      className="home-about-img img-fluid"
+                      src="assets/images/Den_Judo_Kayla_Harrison.jpg"
+                      alt="Kano"
+                    />
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          )
+        </div>
+      </section>
+
+      <section id="faq" className="mx-4 px-4 py-4">
+        <div>
+          <h2 className="home-sub-heading py-4">Frequently Asked Questions</h2>
+        </div>
+        <FAQ />
+      </section>
+
+      <section id="map" className="mx-4 px-4">
+        <h2>Our Location</h2>
+        We are located at 719 Mariposa St, Denver, CO 80204
+        <GMap />
       </section>
     </>
   );

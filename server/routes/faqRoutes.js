@@ -1,10 +1,9 @@
 import express from "express";
 import { isAdmin, protect } from "../middleware/authMiddleware.js";
-import { authUser, registerUser } from "../controllers/userController.js";
+import { createFAQ } from "../controllers/faqController.js";
 
 const router = express.Router();
 
-router.route("/").post(registerUser);
-router.post("/auth", authUser);
+router.route("/").post(protect, isAdmin, createFAQ);
 
 export default router;

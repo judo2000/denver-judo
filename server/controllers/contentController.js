@@ -6,12 +6,12 @@ import sanitize from "mongo-sanitize";
 // @route    POST /api/content
 // @access   Private
 export const createContent = asyncHandler(async (req, res) => {
-  const { page, section, contentHeading, contentText } = sanitize(req.body);
+  const { page, section, contentHead, contentText } = sanitize(req.body);
 
   const content = await Content.create({
     page,
     section,
-    contentHeading,
+    contentHead,
     contentText,
   });
 

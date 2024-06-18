@@ -1,6 +1,7 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import User from "../models/userModel.js";
 import sanitize from "mongo-sanitize";
+import generateToken from "../utils/generateToken.js";
 
 // @desc     Register user
 // @route    POST /api/users
@@ -10,6 +11,7 @@ export const registerUser = asyncHandler(async (req, res) => {
   const firstName = sanitize(req.body.firstName);
   const lastName = sanitize(req.body.lastName);
   const email = sanitize(req.body.email);
+  const password = sanitize(req.body.password);
 
   // check to see if the user already exists
   const userExists = await User.findOne({ email });
@@ -22,6 +24,7 @@ export const registerUser = asyncHandler(async (req, res) => {
     firstName,
     lastName,
     email,
+    password,
     lastLogin: Date.now(),
   });
 
@@ -37,5 +40,35 @@ export const registerUser = asyncHandler(async (req, res) => {
   } else {
     res.status(400);
     throw new Error("Invalid user data");
+  }
+});
+
+// @desc     Auth User and get tomen
+// @route    POST /api/users/login
+// @access   Public
+export const authUser = asyncHandler(async (req, res) => {
+  const email = sanitize(req.body.email);
+  const password = sanitize(req.body.password);
+
+  const user = await User.findOne({ email });
+
+  if (user && (await user.matchPassword(password))) {
+    generateToken(res, user._id);
+
+    const lastLoggedIn = await User.findOneAndUpdate(
+      { email: req.body.email },
+      { lastLogin: Date.now() }
+    );
+    console.log(lastLoggedIn);
+    res.status(200).json({
+      _id: user._id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
+  } else {
+    res.status(401);
+    throw new Error("Invalid email or password.");
   }
 });
