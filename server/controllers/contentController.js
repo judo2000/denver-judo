@@ -28,7 +28,7 @@ export const createContent = asyncHandler(async (req, res) => {
 // @route    public
 export const getContentByPageName = asyncHandler(async (req, res) => {
   const { page } = sanitize(req.params);
-
+  console.log(req.params.page);
   const content = await Content.find({ page: page });
 
   if (content) {

@@ -1,76 +1,13 @@
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import video from "../assets/video/Denver-Judo-Splash-1080.mp4";
+import { useGetHomeContentQuery } from "../slices/contentApiSlice";
 
 const HomeScreen = () => {
-  (function (
-    win,
-    doc,
-    zenJSHost,
-    src,
-    module,
-    partitionApiKey,
-    widgetInstanceId
-  ) {
-    win.zenplanner = win.zenplanner || {};
-    win.zenplanner.directLoadArgs = win.zenplanner.directLoadArgs || [];
-    var tryCount = 0,
-      intervalId = null;
-    function afterLoad() {
-      if (
-        win.zenplanner.directLoader !== undefined &&
-        window.zenplanner.directLoader !== null
-      ) {
-        clearInterval(intervalId);
-        for (var i = 0, l = win.zenplanner.directLoadArgs.length; l > i; i++) {
-          if (
-            win.zenplanner.directLoadArgs[i].widgetInstanceId ===
-            widgetInstanceId
-          ) {
-            win.zenplanner.directLoader.loadWidget(
-              zenJSHost,
-              module,
-              partitionApiKey,
-              widgetInstanceId
-            );
-          }
-        }
-      } else if (tryCount++ > 200) {
-        console.log("Zen Planner widget : " + module + ", failed to load.");
-        clearInterval(intervalId);
-      }
-    }
-    if (
-      win.zenplanner.directLoader === undefined ||
-      win.zenplanner.directLoader === null
-    ) {
-      win.zenplanner.directLoadArgs.push({
-        module: module,
-        partitionApiKey: partitionApiKey,
-        widgetInstanceId: widgetInstanceId,
-      });
-      var s = doc.createElement("script");
-      s.async = 1;
-      s.src = zenJSHost + "/" + src;
-      doc.head.appendChild(s);
-      intervalId = setInterval(afterLoad, 50);
-    } else {
-      win.zenplanner.directLoader.loadWidget(
-        zenJSHost,
-        module,
-        partitionApiKey,
-        widgetInstanceId
-      );
-    }
-  })(
-    window,
-    document,
-    "https://studio.zenplanner.com",
-    "zenplanner/studio/target/zp-widget-direct.js",
-    "freetrial",
-    "6e318d86-ee75-4758-ab91-65e9ce00b105",
-    "583f3707-bf52-41ea-8215-8213abeb0f83"
-  );
+  const { data: homeContent, isLoading, refetchMy } = useGetHomeContentQuery();
+
+  console.log(homeContent);
+
   return (
     <>
       <section id="video" className="text-center">

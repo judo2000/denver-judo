@@ -5,7 +5,7 @@ export const contentApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getHomeContent: builder.query({
       query: () => ({
-        url: `CONTENT_URL/home`,
+        url: `${CONTENT_URL}/home`,
         method: "GET",
       }),
       keepUnusedDataFor: 5,
