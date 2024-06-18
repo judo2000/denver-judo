@@ -17,3 +17,14 @@ export const createFAQ = asyncHandler(async (req, res) => {
     res.status(201).json({ message: "FAQ created successfully!" });
   }
 });
+
+export const getFAQs = asyncHandler(async (req, res) => {
+  const faqs = await FAQ.find();
+
+  if (faqs) {
+    res.status(200).json({ faqs });
+  } else {
+    res.status(404);
+    throw new Error("No FAQ's found.");
+  }
+});
