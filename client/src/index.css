@@ -255,6 +255,9 @@ footer {
 
   transition: all 0.4s ease-out;
 }
+.faqs .faq .faq-question:hover {
+  cursor: pointer;
+}
 
 .faqs .faq .faq-answer {
   opacity: 0;

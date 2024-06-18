@@ -3,10 +3,11 @@ import { Row, Col, Image } from "react-bootstrap";
 import video from "../assets/video/Denver-Judo-Splash-1080.mp4";
 import { useGetHomeContentQuery } from "../slices/contentApiSlice";
 import Loader from "../components/Loader.jsx";
+import { useGetFAQsQuery } from "../slices/faqApiSlice.js";
+import Faq from "../components/Faq.jsx";
 
 const HomeScreen = () => {
-  const { data: homeContent, isLoading, refetchMy } = useGetHomeContentQuery();
-
+  const { data: homeContent, isLoading, refetch } = useGetHomeContentQuery();
   const ourDojo = homeContent?.content[0];
   const kano = homeContent?.content[1];
 
@@ -160,13 +161,12 @@ const HomeScreen = () => {
         <div>
           <h2 className="home-sub-heading py-4">Frequently Asked Questions</h2>
         </div>
-        <FAQ />
+        <Faq />
       </section>
 
       <section id="map" className="mx-4 px-4">
         <h2>Our Location</h2>
         We are located at 719 Mariposa St, Denver, CO 80204
-        <GMap />
       </section>
     </>
   );
