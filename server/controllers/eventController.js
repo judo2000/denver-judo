@@ -32,3 +32,23 @@ export const createEvent = asyncHandler(async (req, res) => {
     throw new Error("Something went wrong");
   }
 });
+
+// @desc     Get events
+// @route    GET /api/events
+// @access   Public
+export const getEventsByMonthAndYear = asyncHandler(async (req, res) => {
+  const { month, year } = sanitize(req.body);
+
+  const events = await Event.find();
+
+  const myEvents = [];
+  events.map((event) => {
+    const dateString = event.startDate.toString().split(" ");
+
+    if (dateString[3] === year && dateString[1] === month) {
+      myEvents.push(event);
+    }
+  });
+
+  res.status(200).json(myEvents);
+});
