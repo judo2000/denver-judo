@@ -7,16 +7,16 @@ import {
   padWeekBack,
 } from "./util";
 import { Button, Table } from "react-bootstrap";
-import EventModal from "./EventModal";
+import EventModal from "./AddEventModal";
 import { useState } from "react";
 
 const Calendar = ({ month, year, onPrev, onNext }) => {
   const currentMonthMoment = moment(`${month}${year}`, "MMYYYY");
   const weeks = segmentIntoWeeks(getDaysInMonth(currentMonthMoment));
 
-  const [showModal, setShowModal] = useState(false);
-  const handleShowModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
+  const [showAddEventModal, setShowAddEventModal] = useState(false);
+  const handleShowAddEventModal = () => setShowModal(true);
+  const handleCloseAddEventModal = () => setShowModal(false);
 
   return (
     <div>
@@ -51,7 +51,7 @@ const Calendar = ({ month, year, onPrev, onNext }) => {
                       <td
                         key={dayMoment.format("D")}
                         className="calendar-cell"
-                        onClick={handleShowModal}
+                        onClick={handleShowAddEventModal}
                       >
                         {dayMoment.format("D")}
                       </td>
@@ -65,8 +65,11 @@ const Calendar = ({ month, year, onPrev, onNext }) => {
         </tbody>
       </Table>
 
-      {showModal && (
-        <EventModal show={showModal} handleClose={handleCloseModal} />
+      {showAddEventModal && (
+        <EventModal
+          show={showAddEventModal}
+          handleClose={handleCloseAddEventModal}
+        />
       )}
     </div>
   );
