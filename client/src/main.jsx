@@ -14,11 +14,17 @@ import App from "./App.jsx";
 import "./index.css";
 
 import HomeScreen from "./screens/HomeScreen.jsx";
+import AboutScreen from "./screens/AboutScreen.jsx";
+import ScheduleScreen from "./screens/ScheduleScreen.jsx";
+import NewScheduleScreen from "./screens/NewScheduleScreen.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<HomeScreen />} />
+      <Route path="/schedule" element={<ScheduleScreen />} />
+      <Route path="/schedule2" element={<NewScheduleScreen />} />
+      <Route path="/about" element={<AboutScreen />} />
     </Route>
   )
 );

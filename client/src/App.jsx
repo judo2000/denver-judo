@@ -1,8 +1,13 @@
-import { Outlet, ScrollRestoration } from "react-router-dom";
+import { Link, Outlet, ScrollRestoration } from "react-router-dom";
 import Header from "./components/Header";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Button, Col, Container, Image, Navbar, Row } from "react-bootstrap";
+
+// icons
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaInstagramSquare, FaFacebookSquare } from "react-icons/fa";
 
 function App() {
   const location = window.location.pathname;
@@ -20,10 +25,19 @@ function App() {
         <ToastContainer position="top-center" limit={1} />
 
         <header>
-          <Header
-            sidebarIsOpen={sidebarIsOpen}
-            setSideBarIsOpen={setSidebarIsOpen}
-          />
+          <Container fluid className="header_container">
+            <Row>
+              <Col md={2} className="d-flex justify-content-end">
+                test
+              </Col>
+              <Col md={6} className="d-flex justify-content-end">
+                center
+              </Col>
+              <Col md={2} className="d-flex justify-content-end">
+                test
+              </Col>
+            </Row>
+          </Container>
         </header>
         <main>
           <Outlet />

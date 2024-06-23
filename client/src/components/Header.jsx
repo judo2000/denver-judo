@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { Button, Col, Container, Image, Offcanvas, Row } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
-
+import {
+  Button,
+  Col,
+  Container,
+  Image,
+  Nav,
+  Navbar,
+  Offcanvas,
+  Row,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
-// icons
-import { GiHamburgerMenu } from "react-icons/gi";
-import { FaInstagramSquare, FaFacebookSquare } from "react-icons/fa";
 
 const options = [
   {
@@ -55,6 +59,7 @@ const Header = ({ setSideBarIsOpen, name, ...props }) => {
               onClick={handleShow}
             />
             <Offcanvas
+              className="offcanvas-nav"
               placement={"start"}
               show={show}
               onHide={handleClose}
@@ -62,11 +67,45 @@ const Header = ({ setSideBarIsOpen, name, ...props }) => {
               {...props}
             >
               <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                <Offcanvas.Title></Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                Some text as placeholder. In real life you can have the elements
-                you have chosen. Like, text, images, lists, etc.
+                <Nav className="flex-column text-white w-100 p-2">
+                  <Nav.Item>
+                    <strong>Denver Judo</strong>
+                  </Nav.Item>
+                  <Link to="/" onClick={() => (this.expand = "")}>
+                    <Nav.Link
+                      className={
+                        location === "/" ? "nav-text nav-text-bold" : "nav-text"
+                      }
+                    >
+                      Home
+                    </Nav.Link>
+                  </Link>
+                  <Link to="/schedule" onClick={() => (this.expand = "")}>
+                    <Nav.Link
+                      className={
+                        location === "/schedule"
+                          ? "nav-text nav-text-bold"
+                          : "nav-text"
+                      }
+                    >
+                      Schedule
+                    </Nav.Link>
+                  </Link>
+                  <Link to="/about" onClick={() => (this.expand = "")}>
+                    <Nav.Link
+                      className={
+                        location === "/about"
+                          ? "nav-text nav-text-bold"
+                          : "nav-text"
+                      }
+                    >
+                      About
+                    </Nav.Link>
+                  </Link>
+                </Nav>
               </Offcanvas.Body>
             </Offcanvas>
           </Col>

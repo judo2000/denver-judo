@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { Row, Col, Image } from "react-bootstrap";
+import { Row, Col, Image, Button } from "react-bootstrap";
 import video from "../assets/video/Denver-Judo-Splash-1080.mp4";
 import { useGetHomeContentQuery } from "../slices/contentApiSlice";
 import Loader from "../components/Loader.jsx";
-import { useGetFAQsQuery } from "../slices/faqApiSlice.js";
 import Faq from "../components/Faq.jsx";
 
 const HomeScreen = () => {
@@ -77,10 +76,16 @@ const HomeScreen = () => {
         </Row>
       </section>
 
-      <section id="try-a-class" className="px-4 mt-4 try-a-class">
-        <h2 className="ms-4 free-class-heading pt-4">TRY A FREE CLASS</h2>
+      <section id="try-a-class" className="px-4 mt-4">
         <div className="text-center py-4">
-          <div id="freetrial_583f3707-bf52-41ea-8215-8213abeb0f83"></div>
+          <Link
+            to="https://denverjudo.sites.zenplanner.com/freeTrial.cfm"
+            target="_blank"
+          >
+            <Button type="btn" className="freeClass-btn">
+              Try a Free Class
+            </Button>
+          </Link>
         </div>
       </section>
 
