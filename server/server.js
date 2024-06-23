@@ -8,6 +8,7 @@ import colors from "colors";
 // routes
 import userRoutes from "./routes/userRoutes.js";
 import contentRoutes from "./routes/contentRoutes.js";
+import eventRoutes from "./routes/eventRoutes.js";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use(cookieParser());
 // use routes
 app.use("/api/users", userRoutes);
 app.use("/api/content", contentRoutes);
+app.use("/api/events", eventRoutes);
 
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "/client/dist")));
