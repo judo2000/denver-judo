@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 
 const eventSchema = mongoose.Schema(
   {
+    eventType: {
+      type: String,
+      required: true,
+      enum: ["Class", "Clinic", "Tournament", "Rank Test", "Other"],
+    },
     eventName: {
       type: String,
       trim: true,
@@ -11,16 +16,16 @@ const eventSchema = mongoose.Schema(
       type: String,
       trim: true,
     },
-    startDate: {
+    eventDate: {
       type: Date,
       required: true,
     },
     startTime: {
-      type: Date,
+      type: String,
       required: true,
     },
     endTime: {
-      type: Date,
+      type: String,
       required: true,
     },
     shortDesc: {
@@ -31,6 +36,10 @@ const eventSchema = mongoose.Schema(
     longDesc: {
       type: String,
       trim: true,
+    },
+    repeats: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }

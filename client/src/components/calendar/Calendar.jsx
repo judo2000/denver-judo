@@ -55,7 +55,7 @@ const Calendar = ({ month, year, events, onPrev, onNext }) => {
                         <span
                           className="calendar-cell-number"
                           onClick={() => {
-                            setSelectedDay(dayMoment.format("D"));
+                            setSelectedDay(dayMoment.format("yyyy-MM-DD"));
                             handleShowAddEventModal();
                           }}
                         >
