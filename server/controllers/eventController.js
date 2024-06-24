@@ -37,8 +37,8 @@ export const createEvent = asyncHandler(async (req, res) => {
 // @route    GET /api/events
 // @access   Public
 export const getEventsByMonthAndYear = asyncHandler(async (req, res) => {
-  const { month, year } = sanitize(req.body);
-
+  const { month, year } = sanitize(req.params);
+  console.log(month);
   const events = await Event.find();
 
   const myEvents = [];

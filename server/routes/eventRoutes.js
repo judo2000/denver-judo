@@ -6,6 +6,7 @@ import {
 
 const router = express.Router();
 
-router.route("/").post(createEvent).get(getEventsByMonthAndYear);
+router.route("/").post(createEvent);
+router.route("/:year/:month").get(getEventsByMonthAndYear);
 
 export default router;

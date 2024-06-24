@@ -10,14 +10,17 @@ import { Button, Table } from "react-bootstrap";
 import EventModal from "./AddEventModal";
 import { useState } from "react";
 
-const Calendar = ({ month, year, onPrev, onNext }) => {
+const Calendar = ({ month, year, events, onPrev, onNext }) => {
   const currentMonthMoment = moment(`${month}${year}`, "MMYYYY");
   const weeks = segmentIntoWeeks(getDaysInMonth(currentMonthMoment));
 
   const [showAddEventModal, setShowAddEventModal] = useState(false);
-  const handleShowAddEventModal = () => setShowModal(true);
-  const handleCloseAddEventModal = () => setShowModal(false);
+  const handleShowAddEventModal = () => setShowAddEventModal(true);
+  const handleCloseAddEventModal = () => setShowAddEventModal(false);
 
+  const [selectedDay, setSelectedDay] = useState("");
+
+  console.log("selected day ", selectedDay);
   return (
     <div>
       <div className="calendar-controls-wrapper">
@@ -48,12 +51,25 @@ const Calendar = ({ month, year, onPrev, onNext }) => {
                 {displayWeek &&
                   displayWeek.map((dayMoment, j) =>
                     dayMoment ? (
-                      <td
-                        key={dayMoment.format("D")}
-                        className="calendar-cell"
-                        onClick={handleShowAddEventModal}
-                      >
-                        {dayMoment.format("D")}
+                      <td key={dayMoment.format("D")} className="calendar-cell">
+                        <span
+                          className="calendar-cell-number"
+                          onClick={() => {
+                            setSelectedDay(dayMoment.format("D"));
+                            handleShowAddEventModal();
+                          }}
+                        >
+                          {dayMoment.format("D")}
+                        </span>
+                        <br />
+                        {events &&
+                          events.map(
+                            (event, i) =>
+                              moment(event.startDate).format("D") ===
+                                dayMoment.format("D") && (
+                                <p key={i}>{event.eventName}</p>
+                              )
+                          )}
                       </td>
                     ) : (
                       <td key={`${i}${j}`} className="calendar-cell"></td>
@@ -69,6 +85,9 @@ const Calendar = ({ month, year, onPrev, onNext }) => {
         <EventModal
           show={showAddEventModal}
           handleClose={handleCloseAddEventModal}
+          month={month}
+          year={year}
+          day={selectedDay}
         />
       )}
     </div>

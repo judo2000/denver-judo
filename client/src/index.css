@@ -135,9 +135,13 @@ footer {
   font-weight: bold;
 }
 
+.btn-close {
+  background-color: var(--dj-red);
+}
 .nav-text {
   color: white;
   padding: 10px;
+  text-decoration: none;
 }
 .nav-text-bold {
   font-weight: bold;
@@ -414,4 +418,10 @@ footer {
 
 .calendar-cell:hover {
   background-color: #eee;
+}
+
+.calendar-cell-number {
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
 }

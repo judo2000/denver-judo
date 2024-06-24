@@ -26,17 +26,7 @@ function App() {
 
         <header>
           <Container fluid className="header_container">
-            <Row>
-              <Col md={2} className="d-flex justify-content-end">
-                test
-              </Col>
-              <Col md={6} className="d-flex justify-content-end">
-                center
-              </Col>
-              <Col md={2} className="d-flex justify-content-end">
-                test
-              </Col>
-            </Row>
+            <Header />
           </Container>
         </header>
         <main>

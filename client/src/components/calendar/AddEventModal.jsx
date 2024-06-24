@@ -1,13 +1,14 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
 
-const EventModal = ({ show, handleClose }) => {
+const EventModal = ({ show, month, year, day, handleClose }) => {
+  console.log(month);
   return (
     <Modal size="lg" show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Event</Modal.Title>
+        <Modal.Title>Add an Event for {`${month}-${day}-${year}`}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>testing modal</Modal.Body>
+      <Modal.Body>{day}</Modal.Body>
     </Modal>
   );
 };
