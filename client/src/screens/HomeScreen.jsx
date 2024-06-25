@@ -12,20 +12,18 @@ const HomeScreen = () => {
 
   return (
     <>
-      <section id="video" className="text-center">
+      <section>
         <div className="videoWrapper">
           <iframe src={video} allowFullScreen></iframe>
         </div>
       </section>
-
-      <section id="home-heading" className="my-1">
+      <section>
         <div className="text-center">
           <h1 className="cap-heading my-1 pt-2">
             Train for competition or self defence at Denver Judo
           </h1>
         </div>
       </section>
-
       <section className="classes my-4 p-4">
         <Row>
           <Col sm={12} md={6} lg={4} className="py-2">
@@ -75,7 +73,6 @@ const HomeScreen = () => {
           </Col>
         </Row>
       </section>
-
       <section id="try-a-class" className="px-4 mt-4">
         <div className="text-center py-4">
           <Link
@@ -88,7 +85,6 @@ const HomeScreen = () => {
           </Link>
         </div>
       </section>
-
       <section id="about-judo" className="home-about">
         <div className="pt-4">
           <Row className="mt-4 py-5 justify-content-center">
@@ -110,12 +106,12 @@ const HomeScreen = () => {
                     ) : (
                       <>
                         <h2 className="section-heading text-white">
-                          {kano.contentHead}
+                          {kano?.contentHead}
                         </h2>
                         <span className="section-text text-white">
                           <div
                             dangerouslySetInnerHTML={{
-                              __html: kano.contentText,
+                              __html: kano?.contentText,
                             }}
                           />
                         </span>
@@ -133,12 +129,12 @@ const HomeScreen = () => {
                     ) : (
                       <>
                         <h2 className="section-heading text-white">
-                          {ourDojo.contentHead}
+                          {ourDojo?.contentHead}
                         </h2>
                         <span className="section-text text-white">
                           <div
                             dangerouslySetInnerHTML={{
-                              __html: ourDojo.contentText,
+                              __html: ourDojo?.contentText,
                             }}
                           />
                         </span>
@@ -161,7 +157,6 @@ const HomeScreen = () => {
           )
         </div>
       </section>
-
       <section id="faq" className="mx-4 px-4 py-4">
         <div>
           <h2 className="home-sub-heading py-4">Frequently Asked Questions</h2>

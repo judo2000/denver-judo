@@ -17,7 +17,7 @@ const ScheduleScreen = () => {
         id="idZenPlannerFrame"
         style={{ width: "100%", height: "500px" }}
         src="https://denverjudo.zenplanner.com/zenplanner/portal/calendar.cfm?frame=true"
-        frameBorder="3"
+        frameBorder="0"
       ></iframe>
     </Container>
   );
