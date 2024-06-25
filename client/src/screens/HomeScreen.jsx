@@ -10,6 +10,9 @@ const HomeScreen = () => {
   const ourDojo = homeContent?.content[0];
   const kano = homeContent?.content[1];
 
+  console.log(homeContent);
+  console.log("our dojo ", ourDojo?.contentHead);
+  console.log("kano ", kano?.contentHead);
   return (
     <>
       <section>
