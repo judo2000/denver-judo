@@ -3,11 +3,19 @@ import { Col, Form, Modal, Row, Button } from "react-bootstrap";
 import FormContainer from "../FormContainer";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { useCreateEventMutation } from "../../slices/eventApiSlice";
 
 const EventModal = ({ show, month, year, day, handleClose }) => {
+  const [createEvent, { isLoading }] = useCreateEventMutation();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(eventDate);
+
+    try {
+      const res = await createEvent({
+        eventType,
+      });
+    } catch (error) {}
   };
 
   const [eventDate, setEventDate] = useState(day ? day : "");
@@ -156,7 +164,11 @@ const EventModal = ({ show, month, year, day, handleClose }) => {
 
             <Row>
               <Col className="d-flex flex-column align-items-center gap-2">
-                <Button type="submit" className="login_btn">
+                <Button
+                  type="submit"
+                  className="login_btn"
+                  disabled={isLoading}
+                >
                   Add Event
                 </Button>
               </Col>

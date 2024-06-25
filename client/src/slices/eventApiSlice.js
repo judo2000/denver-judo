@@ -10,7 +10,15 @@ export const eventsApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
     }),
+    createEvent: builder.mutation({
+      query: (data) => ({
+        url: `${EVENT_URL}`,
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const { useGetEventsByYearAndMonthQuery } = eventsApiSlice;
+export const { useGetEventsByYearAndMonthQuery, useCreateEventMutation } =
+  eventsApiSlice;
